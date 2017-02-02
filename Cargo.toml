@@ -1,0 +1,6 @@
+[package]
+name = "jothello"
+version = "0.1.0"
+authors = ["Joseph Thomas <joey6978@gmail.com>"]
+
+[dependencies]
