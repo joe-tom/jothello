@@ -6,11 +6,12 @@ static WHITE: usize = 0;
 static BLACK: usize = 1;
 
 // Consider adding an array specifically for diagonals.
-static TRANSFORM: [[[u32; 8]; 6561] = [[0; 8]; 6561];
+static TRANSFORM: [[u32; 8]; 6561] = [[0; 8]; 6561];
 
 // Lookup table for binary to ternary transfromation.
 static BT: [u32; 256] = [0; 256];
 static BT2: [u32; 256] = [0; 256];
+
 
 
 pub fn build_all () {
@@ -34,40 +35,29 @@ fn build_transform () {
     for white in 0..256 {
 
       // Ignore invalid positions. i.e. intersections within stones.
-      if white&black {
+      if (white&black) != 0 {
         continue;
       }
-
-
-      // Duplicate white and black.
-      let new_black = black;
-      let new_white = white;
-
-      // Go through each square, for white moves.
+      
+      // Iterate through all the locations
       for start in 0..8 {
-        if (new_white >> start) & 1 {
-          let go = start;
-          if start != 7 {
-            while (++go < 7 && new_black>>)
-          }
-
-          let go = start;
-          if start != 0 {
-
-          }
-        }
+        if (black >> white)
+        go_rows(black, white, start);
       }
 
-      // Add this to the transformations.
     }
   }
-
-
 }
 
+fn go_rows (you: u8, opp: u8, loc: u8) {
+  if loc == 0 {
 
+  } else if loc == 7 {
 
+  } else {
 
+  }
+}
 
 
 
