@@ -38,28 +38,42 @@ fn build_transform () {
       if (white&black) != 0 {
         continue;
       }
-      
-      // Iterate through all the locations
-      for start in 0..8 {
-        if (black >> white)
-        go_rows(black, white, start);
+      // Initialize a taken number.
+      let taken = white | black;
+
+      // Initialize stone arrays.
+      let mut white_arr: Vec<u8> = vec![];
+      let mut black_arr: Vec<u8> = vec![];
+
+      // Iterate through the bits to create bit vectors.
+      for i in 0..8 {
+        white_arr.push((white >> i) & 1);
+        black_arr.push((black >> i) & 1);
       }
 
+      // Find empty states. If the states are empty, go through!
+      for i in 0..8 {
+        if ((taken >> i) & 1) == 0 {
+          black(white_arr.clone(), black_arr.clone(), i);
+          white(white_arr.clone(), black_arr.clone(), i);
+        }
+      }
     }
   }
 }
 
-fn go_rows (you: u8, opp: u8, loc: u8) {
-  if loc == 0 {
 
-  } else if loc == 7 {
-
-  } else {
-
-  }
+fn black (bit_arr_opp: Vec<u8>, bit_arr_you: Vec<u8>, point: u8) {
+  let mut i = 0;
+  
 }
 
+fn white (bit_arr_you: Vec<u8>, bit_arr_opp: Vec<u8>, point: u8) {
+  if point == 0 {
 
+  } else if point == 7 {
 
-
-
+  } else {
+    
+  }
+}
