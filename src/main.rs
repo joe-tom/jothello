@@ -1,5 +1,7 @@
 mod build;
 
 fn main() {
-  println!("Hello World!");
+
+  // Set up the build tables.
+  build::build_all();
 }

@@ -13,6 +13,10 @@ static BT: [u32; 256] = [0; 256];
 static BT2: [u32; 256] = [0; 256];
 
 
+pub fn build_all () {
+  build_bin_to_trin();
+  build_transform();
+}
 
 fn build_bin_to_trin () {
   for num in 0..256 {
@@ -39,12 +43,26 @@ fn build_transform () {
       let new_black = black;
       let new_white = white;
 
-      // Go through each square.
+      // Go through each square, for white moves.
       for start in 0..8 {
-        if new_white >> start & 1
+        if (new_white >> start) & 1 {
+          let go = start;
+          if start != 7 {
+            while (++go < 7 && new_black>>)
+          }
+
+          let go = start;
+          if start != 0 {
+
+          }
+        }
       }
+
+      // Add this to the transformations.
     }
   }
+
+
 }
 
 
