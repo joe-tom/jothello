@@ -1,4 +1,6 @@
+pub fn build_all () {
 
+}
 
 
 
@@ -11,13 +13,27 @@ fn move_diagl () {
         continue;
       }
 
-      white & 1 << 63)
 
     }
   }
 }
 
 
+
+
+
+fn diagl_transform (item: u8) -> u64 {
+  let thing: u64 = ((((item as u64) >> 7) & 1) << 63)
+        | ((((item as u64) >> 6) & 1) << 54)
+        | ((((item as u64) >> 5) & 1) << 45)
+        | ((((item as u64) >> 4) & 1) << 36)
+        | ((((item as u64) >> 3) & 1) << 27)
+        | ((((item as u64) >> 2) & 1) << 18)
+        | ((((item as u64) >> 1) & 1) << 09)
+        | ((((item as u64) >> 0) & 1) << 00);
+
+  return thing;
+}
 
 
 
